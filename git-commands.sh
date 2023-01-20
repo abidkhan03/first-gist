@@ -38,3 +38,41 @@ git add .gitignore
 # Add All Files in current Directory
 git add -A
 
+# Remove Specific file Directory
+git reset .gitignore
+
+# Remove all
+git reset
+
+# Add Commit in staging area
+git commit -m "First Commit"
+
+# Get log (history) of commits
+git log
+
+# Get log in one line
+git log --oneline
+
+# Clone from one url/directory to other
+git clone <url> <where to close>
+
+# Clone from other directory to current directory
+git clone ../file .
+ 
+# Clone from url to current directory 
+git clone https://github.com/ali-meesam/remote_repo.git .
+
+# List information of repo
+git remote -v
+
+# See all of the branches
+git branch -a
+
+# Show all Changes since previous commit 
+git diff
+
+# Add All into staging
+git add -A    /  git add .
+
+# Check if their is any changes by other developer
+git pull origin developer
