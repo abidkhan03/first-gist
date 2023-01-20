@@ -105,6 +105,7 @@ git checkout master
 
 git pull origin master
 
+# Merge branch
 git branch --merged
 
 
@@ -119,6 +120,7 @@ git branch --merged
 # delete branch locally 
 git branch -d develop
 
+# List all branches
 git branch -a 
 
 # Delete branch remotely
@@ -132,6 +134,7 @@ git push origin --delete develop
 
 $ git branch subtract
 
+# Move to substract branch
 $ git checkout subtract
 
 $ git status
@@ -158,3 +161,110 @@ $ git branch -d develop
 
 $ git push origin --delete develop
 
+#Commet syntax Used by Datum Brain
+#_________________________________
+
+# ticket number
+# [ABC-1]
+
+# Title
+# Title should be Written Like This 
+
+# Things Changed
+# * First thing Done
+# * Second thing done
+# * Third thing done
+
+
+# GIT-FLOW
+# __________
+
+# Install Git Flow on OSX
+  brew install git-flow
+
+# Install GitFlow in Current repo
+git flow init
+
+# 1. Master branch
+
+# 2. Develop branch  
+   # It save all the changes by developers
+   
+# 3. Feature Branch 
+  #* start Feature branch
+     $ git flow feature start feature_branch  
+
+  #*  1.
+      $ git checkout develop
+        
+     # Merge Feature branch to develop branch
+  #*   2.
+       $ git merge feature_branch 
+
+     
+#* finish feature branch
+    $ git flow feature finish feature_branch
+
+# 4. Release branch
+#   * After completing features merge into release branch
+#   * Do not update release branch after its completed
+#   * Only bug fix and documentation
+  
+    # Without git-flow
+     git checkout develop 
+     
+     git flow feature finish feature_branch 
+
+     git checkout master 
+     git merge release/0.1.0 
+
+    
+    # With Git-flow
+
+   $ git flow release start 0.1.0 
+   # Switched to a new branch 'release/0.1.0'
+	
+   $ git flow release finish '0.1.0' 
+
+# 5. Hotfix Branches
+ #*
+    # Without git flow
+    git checkout master 
+    git checkout -b hotfix_branch 
+  #*
+    git checkout master
+    git merge hotfix_branch
+    git checkout develop
+    git merge hotfix_branch
+    git branch -D hotfix_branch
+    
+    # With git Flow
+ #*
+    $ git flow hotfix start hotfix_branch
+    
+    $ git flow hotfix finish hotfix_branch
+
+    # Example without git flow
+
+    git checkout master
+    git checkout -b develop
+    git checkout -b feature_branch
+    
+    # work happens on feature branch
+    git checkout develop
+    git merge feature_branch
+    git checkout master
+    git merge develop
+    
+    git branch -d feature_branch 
+
+    # Example with git branch
+
+    git checkout master
+    git checkout -b hotfix_branch
+    
+    # work is done commits are added to the hotfix_branch
+    git checkout develop
+    git merge hotfix_branch
+    git checkout master
+    git merge hotfix_branch
