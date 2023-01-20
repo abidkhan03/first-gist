@@ -76,3 +76,85 @@ git add -A    /  git add .
 
 # Check if their is any changes by other developer
 git pull origin developer
+
+
+# Push branch to remote repostory
+git push origin developer
+
+#  save name of repostary, Helps us to use git pull, git push only commands
+git push -u origin developer 
+
+# Show all available branches
+git branch       /   git branch -a 
+
+# Make branch Develop 
+git branch develop 
+
+# Alternate way to Make New branch Named Develop
+git checkout -b develop 
+
+# Move to develop branch
+git checkout develop 
+
+# Add to Remote Branch
+git remote add origin https://github.com/ali-meesam/Tester.git
+
+
+# Push to master
+git checkout master
+
+git pull origin master
+
+git branch --merged
+
+
+# Merge develop to master branch
+git merge develop 
+
+# push to remote repository 
+git push origin master  
+
+git branch --merged
+
+# delete branch locally 
+git branch -d develop
+
+git branch -a 
+
+# Delete branch remotely
+git push origin --delete develop 
+
+
+# Example(copied from git workflow)
+# _______
+
+# Make new branch named Subtract of subtract function
+
+$ git branch subtract
+
+$ git checkout subtract
+
+$ git status
+
+$ git add -A
+
+$ git commit -m "Subtract function added"
+
+$ git push -u origin subtract
+
+# Merging branch to master
+
+$ git checkout master
+
+$ git pull origin master
+
+$ git merge subtract
+
+$ git push origin master
+
+$ git branch -d subtract
+
+$ git branch -d develop
+
+$ git push origin --delete develop
+
